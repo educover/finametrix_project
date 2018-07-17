@@ -1,0 +1,20 @@
+{
+  "name": "finametrix-project",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Edu Alcover <alcover.edu@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/educover/finametrix_project",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.3.1"
+  }
+}
