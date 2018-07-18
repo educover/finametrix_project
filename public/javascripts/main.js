@@ -22,7 +22,7 @@ var funcion = function(e){
     b=b.toString();
     console.log(typeof(b))
     console.log(b)
-    if(!(b.toUpperCase()==='CSV' || b.toLowerCase()==='c,s,v')){
+    if(!(b.toUpperCase()==='C,S,V' || b.toLowerCase()==='c,s,v')){
     //let file = file1.substr(index);
     $('.ext').append('<p>Extension del archivo subido: '+b+'</p>');
     $('.ext').append('La extension debe ser : CSV');
