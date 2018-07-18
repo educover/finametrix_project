@@ -17,15 +17,6 @@ class CsvToJson{
                  reject(e);
             })
         });
-        /*setTimeout(() => {
-            csv()
-            .fromFile(this.csvFilePath)
-            .then((jsonObj)=>{
-            console.log(typeof(jsonObj));
-                return jsonObj;
-            
-        })
-        }, 5000);*/
         
     }
    
