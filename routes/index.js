@@ -3,7 +3,7 @@ const UploadService = require('../service/uploadService');
 var router = express.Router();
 let uploadService = new UploadService();
 let upload = uploadService.up();
-let ConvertController = require('../controllers/convertController');
+let ConvertCsvController = require('../controllers/convertCsvController');
 let CsvToJson = require('../service/csvToJson');
 
 
@@ -13,8 +13,8 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/upload', upload.single('file'),(req, res, next)=>{
-  let convertController = new ConvertController(req, res, next);
-  convertController.convertCsv();
+  let convertCsvController = new ConvertCsvController(req, res, next);
+  convertCsvController.convertCsv2();
   
 });
 
