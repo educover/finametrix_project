@@ -14,7 +14,7 @@ router.get('/', function(req, res, next) {
 
 router.post('/upload', upload.single('file'),(req, res, next)=>{
   let convertCsvController = new ConvertCsvController(req, res, next);
-  convertCsvController.convertCsv2();
+  convertCsvController.convertCsv();
   
 });
 

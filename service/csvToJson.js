@@ -8,7 +8,10 @@ class CsvToJson{
 
     convertToJson(){
        return new Promise((resolve, reject)=>{
-            csv()
+            csv({
+                delimiter:';',
+                noheader: true
+            })
             .fromFile(this.csvFilePath)
             .then((jsonObj)=>{
                  resolve(jsonObj);
