@@ -2,6 +2,7 @@ let Controller = require('./controller');
 let CsvToJson = require('../service/csvToJson');
 let CsvService = require('../service/csvService');
 let CsvGeneratorService = require('../service/csvGeneratorService');
+let CheckDataService = require('../service/checkDataService');
 
 let csv = require('csv');
 let generate = require('csv-generate');
@@ -25,9 +26,17 @@ class ConvertController extends Controller{
             csvToJson.convertToJson()
             .then(data=>{//console.log(JSON.stringify(data))
                 console.log(typeof(data))
-                this.res.json(data)
+                console.log(data[3].field5)
+                let checkDataService = new CheckDataService(data);
+                checkDataService.checkData()
+                    .then(dataChecked=>{
+                        this.res.json(dataChecked)
+                    })
+
+               // this.res.json(data)
             })
-            .catch(e=>{console.error(e)
+            .catch(e=>{
+                console.error(e)
                 this.res.json('Error en la conversion de archivos: '+e)
             });
     }
