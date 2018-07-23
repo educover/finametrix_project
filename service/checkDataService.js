@@ -1,3 +1,6 @@
+
+
+
 class checkDataService{
   constructor(csvJson){
     this.ISDNObject = csvJson;
@@ -38,8 +41,8 @@ class checkDataService{
                 niVAniVL.push(lineas[i])
             }
         }
-        resolve({VLerrores, VLcorrectos, VAerrores, VAcorrectos, niVAniVL});
-      
+        resolve({VLerrores, VLcorrectos, VAerrores, VAcorrectos, niVAniVL})
+        reject()
     })
   }
 

@@ -3,6 +3,9 @@ let CsvToJson = require('../service/csvToJson');
 let CsvService = require('../service/csvService');
 let CsvGeneratorService = require('../service/csvGeneratorService');
 let CheckDataService = require('../service/checkDataService');
+let SaveFileController = require('./saveFileController');
+
+let RegisterController = require('./registerController');
 
 let csv = require('csv');
 let generate = require('csv-generate');
@@ -30,18 +33,27 @@ class ConvertController extends Controller{
                 let checkDataService = new CheckDataService(data);
                 checkDataService.checkData()
                     .then(dataChecked=>{
-                        this.res.json(dataChecked)
+                        //this.res.json(dataChecked.VAcorrectos, dataChecked.VLcorrectos)
+                        //this.res.json(dataChecked)
+                        let saveFileController = new SaveFileController()
+                        saveFileController.saveFile(dataChecked.VAcorrectos, dataChecked.VLcorrectos)
+                        .then(correcto=>console.log('datos guardados correctamente->'+correcto))
+                        .catch(err=>console.error('error guardando archivos->'+err))
+                        
+                    })
+                    .catch(error=>{
+                        console.error(error);
                     })
 
-               // this.res.json(data)
+                this.res.json(data)
             })
             .catch(e=>{
                 console.error(e)
-                this.res.json('Error en la conversion de archivos: '+e)
+                this.res.status(500).json('Error en la conversion de archivos: '+e)
             });
     }
 
-    convertCsv2(){
+    /*convertCsv2(){
         let ruta = this.req.file.destination+'/'+this.req.file.filename
         console.log(ruta)
         let MyData = [];
@@ -53,9 +65,9 @@ class ConvertController extends Controller{
             
         .to.array(function (data) {
             
-            /*for (var index = 0; index < data.length; index++) {                
+            for (var index = 0; index < data.length; index++) {                
                 MyData.push(new CsvService(data[index][0], data[index][1], data[index][2], data[index][3]));
-            }*/
+            }
             console.log(data);
             
             
@@ -69,7 +81,7 @@ class ConvertController extends Controller{
         let ruta = this.req.file.destination+'/'+this.req.file.filename
         let csvGeneratorService = new CsvGeneratorService();
         csvGeneratorService.csvGenerate(ruta);
-    }
+    }*/
 
 
 
