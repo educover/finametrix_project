@@ -4,10 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var mongoose = require('mongoose');
 var connect = require('./configuration/connectionMongo')();
-var csvVaSchema = require('./schemas/csvVaSchema')
-var csvVlSchema = require('./schemas/csvVlSchema')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');

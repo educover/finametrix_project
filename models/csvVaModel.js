@@ -1,10 +1,12 @@
-const mongoose = require('../configuration/connectionMongo');
-const csvVaSchema = require('../schemas/csvVaSchema').csvSchemaVa;
+const mongoose = require('mongoose');
 
-//var vaModel = mongoose.model('vaModel', csvVaSchema)
+let vaSchema = Mongoose.Schema ({   
+        tipo_registro : String,
+        isin : String,
+        nombre : String,
+        divisa : String,
+        familia : String
+});
 
-let vaModel = {
-    Va : mongoose.model('SchemaVa', csvVaSchema)
-}
-
-//module.exports = vaModel;
+let vaModel = mongoose.model('vaModel',vaSchema);
+module.exports = vaModel;

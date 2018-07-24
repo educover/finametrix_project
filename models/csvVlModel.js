@@ -1,8 +1,11 @@
-const mongoose = require('../configuration/connectionMongo');
-const csvVlSchema = require('../schemas/csvVaSchema').csvVlSchema;
+const mongoose = require('mongoose');
 
-const vlModel = {
-    Vl : mongoose.model('SchemaVl', csvVlSchema)
-}
+let vlSchema = Mongoose.Schema ({   
+    tipo_registro : String,
+    isin :  String,
+    fecha :  String,
+    precio : Number
+});
 
-//module.exports = vlModel;
+let vlModel = mongoose.model('vlModel',vlSchema);
+module.exports = vlModel;
