@@ -9,4 +9,4 @@ const Schema = mongoose.Schema;
        precio : {type: Number}
     })
 //}
-module.exports = mongoose.model('SchemaVl', csvSchemaVl);
+//module.exports = mongoose.model('SchemaVl', csvSchemaVl);

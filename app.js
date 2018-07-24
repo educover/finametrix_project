@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var mongoose = require('mongoose');
-var connectionMongo = require('./configuration/connectionMongo');
+var connect = require('./configuration/connectionMongo')();
 var csvVaSchema = require('./schemas/csvVaSchema')
 var csvVlSchema = require('./schemas/csvVlSchema')
 

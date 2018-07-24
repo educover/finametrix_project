@@ -36,9 +36,11 @@ class ConvertController extends Controller{
                         //this.res.json(dataChecked.VAcorrectos, dataChecked.VLcorrectos)
                         //this.res.json(dataChecked)
                         let saveFileController = new SaveFileController()
+                        
+                        console.log(typeof('dataChecked.VLcorrectos '+dataChecked.VLcorrectos))
                         saveFileController.saveFile(dataChecked.VAcorrectos, dataChecked.VLcorrectos)
-                        .then(correcto=>console.log('datos guardados correctamente->'+correcto))
-                        .catch(err=>console.error('error guardando archivos->'+err))
+                            .then(correcto=>console.log('datos guardados correctamente->'+correcto))
+                            .catch(err=>console.error('error guardando archivos->'+err))
                         
                     })
                     .catch(error=>{

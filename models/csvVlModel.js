@@ -5,4 +5,4 @@ const vlModel = {
     Vl : mongoose.model('SchemaVl', csvVlSchema)
 }
 
-module.exports = vlModel;
+//module.exports = vlModel;

@@ -7,4 +7,4 @@ let vaModel = {
     Va : mongoose.model('SchemaVa', csvVaSchema)
 }
 
-module.exports = vaModel;
+//module.exports = vaModel;
