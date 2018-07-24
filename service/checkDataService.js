@@ -8,7 +8,7 @@ class checkDataService{
   checkData(){
 
     let lineas = this.ISDNObject;
-
+    console.log(typeof(lineas) + ' typeof de lineas en checjdataService')
     return new Promise((resolve,reject)=>{
         let VLerrores=[];
         let VLcorrectos = [];
@@ -27,6 +27,7 @@ class checkDataService{
                 if(!isValid) {
                     VLerrores.push(lineas[i])
                 } else {
+                    
                     lineas[i].field4 = parseFloat(lineas[i].field4.replace(',','.'))
                     VLcorrectos.push(lineas[i])
                 }

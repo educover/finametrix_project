@@ -4,6 +4,8 @@ let CsvService = require('../service/csvService');
 let CsvGeneratorService = require('../service/csvGeneratorService');
 let CheckDataService = require('../service/checkDataService');
 let SaveFileController = require('./saveFileController');
+let ExtractData = require('../helpers/extractData');
+let Calculate = require('../helpers/calculates');
 
 let RegisterController = require('./registerController');
 
@@ -34,15 +36,26 @@ class ConvertController extends Controller{
                 checkDataService.checkData()
                     .then(dataChecked=>{
                         //this.res.json(dataChecked.VAcorrectos, dataChecked.VLcorrectos)
-                        this.res.json(dataChecked)
-
+                        //this.res.json(dataChecked)
+                        let extractData = new ExtractData();
+                        extractData.extractE("ES0000000001", 20000101, 20000105, dataChecked.VLcorrectos)
+                            .then(euros=>{
+                                //console.log(typeof(euros))
+                                console.log('length de euros ->'+euros.length)
+                                //this.res.json(euros)
+                                let calculate = new Calculate();
+                                calculate.calculates('20000101', '20000105', euros, dataChecked.VLcorrectos)
+                                    .then(result=>{
+                                        this.res.json(result)
+                                    })
+                            })
+                            .catch(e=>console.error(e))
 
                         /*let saveFileController = new SaveFileController()                        
                         console.log(typeof('dataChecked.VLcorrectos '+dataChecked.VLcorrectos))
                         saveFileController.saveFile(dataChecked.VAcorrectos, dataChecked.VLcorrectos)
                             .then(correcto=>console.log('datos guardados correctamente->'+correcto))
-                            .catch(err=>console.error('error guardando archivos->'+err))*/
-                        
+                            .catch(err=>console.error('error guardando archivos->'+err))*/                        
                     })
                     .catch(error=>{
                         console.error(error);
