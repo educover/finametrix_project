@@ -1,17 +1,21 @@
 var express = require('express');
 var router = express.Router();
-let ReadFilesController = require('../controllers/readFilesController');
+let DataController = require('../controllers/api/dataController');
+let CalculateRentability = require('../controllers/api/calculateRentability');
+let modelVl = require('../models/csvVlModel')
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  let readFilesController = new ReadFilesController(req, res, next);
-  readFilesController.readFile()
-    .then(file=>{
-        res.json(file);
-    })
-    .catch(e=>{
-        res.json('error->'+e)
-    })
+/* GET users listing. *////api/performance?isin=&dateFrom=&dateTo=``` 
+router.get('/performance', function(req, res, next) {
+
+    let dataController = new DataController(req, res, next)
+    dataController.findData()
+        .then((consulta)=>{           
+            let calculateRentability = new CalculateRentability(req, res, next);
+            calculateRentability.calculatesObj(consulta);
+        })
+        .catch(error=>this.res.json(error));
+    
+ 
 });
 
 module.exports = router;

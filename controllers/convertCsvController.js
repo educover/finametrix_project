@@ -40,7 +40,7 @@ class ConvertController extends Controller{
                         let registerController = new RegisterController();
                         registerController.insertCsvVa(dataChecked.VAcorrectos)
                         registerController.insertCsvVl(dataChecked.VLcorrectos)
-                        this.res.json('datos almacenados')
+                        this.res.json(dataChecked.VLerrores)
                         /*let extractData = new ExtractData();
                         extractData.extractE("ES0000000001", 20000101, 20000105, dataChecked.VLcorrectos)
                             .then(euros=>{
