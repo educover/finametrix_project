@@ -1,27 +1,50 @@
-/*
+
 let Controller = require('./controller');
 let CsvVaModel = require('../models/csvVaModel');
 let CsvVlModel = require('../models/csvVlModel');
-let conn = require('../configuration/connectionMongo');
-let SchemaVa = require('../schemas/csvVaSchema');
 
-class registerController{
+
+class registerController extends Controller{
+    constructor(req, res, next){
+        super(req, res, next)
+    }
    
 
-    insertCsvVl(){
-
+    insertCsvVl(VL){
+        CsvVlModel.collection.insert(VL, (err, docs)=>{
+            if (err) {
+                console.error(err)
+            } else {
+                console.info('%d VE were successfully stored.', docs.length);
+            }
+        })
     }
     //VLerrores, VLcorrectos, VAerrores, VAcorrectos, niVAniVL
 
-    insertCsvVa(VAcorrectos){
+    insertCsvVa(VA){
+
+        CsvVaModel.collection.insert(VA, (err, docs)=>{
+            if (err) {
+                console.error(err)
+            } else {
+                console.info('%d VA were successfully stored.'+ docs.length);
+            }
+        })
+       
+        /*let valorVa = new CsvVaModel({
+            tipo_registro : 'VA[i].field1',
+            isin : 'VA[i].field2',
+            nombre : 'VA[i].field3',
+            divisa : 'VA[i].field4',
+            familia : 'VA[i].field5'
+        });
+        valorVa.save(err=>{
+            if(err) console.error(err);
+            console.log("Almacenado");
+          })
         
-            var csvVaModel = new SchemaVa(VAcorrectos);
-            csvVaModel.save(function (err, data) {
-                if (err) return handleError(err);
-                return console.log('datos guardados->'+data)
-            })
-        
+          this.res.json(valorVa);*/
     }
 }
 
-module.exports = registerController;*/
+module.exports = registerController;

@@ -41,7 +41,7 @@ class calculate{
             }
             varianzaTotal = varianzaTotal/(euros.length-1);
 
-            result.desviacionEstandar = Math.sqrt(varianzaTotal)
+            result.volatibilidad = Math.sqrt(varianzaTotal)
             //console.log('esta es la media->' + media)
             //console.log('esta es la varianza->' + varianza)
             //console.log('esta es la varianza total->' + varianzaTotal)

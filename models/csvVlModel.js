@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-let vlSchema = Mongoose.Schema ({   
+let vlSchema = mongoose.Schema ({   
     tipo_registro : String,
     isin :  String,
     fecha :  String,
