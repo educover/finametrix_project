@@ -19,7 +19,7 @@ router.post('/upload', upload.single('file'),(req, res, next)=>{
 });
 
 router.get('/upload', upload.single('file'),(req, res, next)=>{
-  res.redirect('/')
+  res.redirect('/');
   
 });
 
