@@ -18,12 +18,18 @@ class ConvertController extends Controller{
                 checkDataService.checkData()
 
                     .then(dataChecked=>{
-
+                        
                         let registerController = new RegisterController();
-                        this.res.json(dataChecked.VLsinVA) 
                         registerController.insertCsvVa(dataChecked.VAcorrectos)
                         registerController.insertCsvVl(dataChecked.VLcorrectos)
-                                                               
+                        this.res.render('listaErrores', {
+                            title:'Lista errores',
+                            VLsinVA:dataChecked.VLsinVA,
+                            VLerroresFecha:dataChecked.VLerroresFecha,
+                            VLerroresMoneda:dataChecked.VLerroresMoneda,
+                            Vprocesados:dataChecked.Vprocesados
+
+                        })                                     
                     })
 
                     .catch(error=>{

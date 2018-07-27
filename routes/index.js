@@ -13,8 +13,12 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/upload', upload.single('file'),(req, res, next)=>{
+  if(req.file!==''){
   let convertCsvController = new ConvertCsvController(req, res, next);
   convertCsvController.convertCsv();
+  } else {
+    res.redirect('/')
+  }
   
 });
 

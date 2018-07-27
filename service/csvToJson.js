@@ -13,11 +13,11 @@ class CsvToJson{
                 noheader: true
             })
             .fromFile(this.csvFilePath)
-            .subscribe((data)=>{
+            .on('data', (data)=>{
                 console.log(JSON.stringify(data))
             })
             .then((jsonObj)=>{
-                console.log(jsonObj)
+                //console.log(jsonObj)
                  resolve(jsonObj);
             })
             .catch(e=>{

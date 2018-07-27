@@ -1,0 +1,76 @@
+
+{{#if VLerroresFecha}} 
+Errores en el formato de la fecha
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Tipo de registro</th>
+      <th scope="col">Isin</th>
+      <th scope="col">Fecha</th>
+      <th scope="col">Moneda</th>
+    </tr>
+  </thead>
+  <tbody>
+      {{#each VLerroresFecha}} 
+    <tr>
+      <th scope="row">{{field1}}</th>
+      <td>{{field2}}</td>
+      <td>{{field3}}</td>
+      <td>{{field4}}</td>
+    </tr>
+    {{/each}} 
+  </tbody>
+</table>
+{{/if}} 
+
+{{#if VLerroresMoneda}} 
+Errores en el formato de la moneda
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Tipo de registro</th>
+      <th scope="col">Isin</th>
+      <th scope="col">Fecha</th>
+      <th scope="col">Moneda</th>
+    </tr>
+  </thead>
+  <tbody>
+      {{#each VLerroresMoneda}} 
+    <tr>
+      <th scope="row">{{field1}}</th>
+      <td>{{field2}}</td>
+      <td>{{field3}}</td>
+      <td>{{field4}}</td>
+    </tr>
+    {{/each}} 
+  </tbody>
+</table>
+{{/if}} 
+
+
+{{#if VLsinVA}} 
+VL sin cabecera
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Tipo de registro</th>
+      <th scope="col">Isin</th>
+      <th scope="col">Fecha</th>
+      <th scope="col">Moneda</th>
+    </tr>
+  </thead>
+  <tbody>
+      {{#each VLsinVA}} 
+    <tr>
+      <th scope="row">{{field1}}</th>
+      <td>{{field2}}</td>
+      <td>{{field3}}</td>
+      <td>{{field4}}</td>
+    </tr>
+    {{/each}} 
+  </tbody>
+</table>
+{{/if}} 
+{{#if Vprocesados}}
+Registros procesados: {{Vprocesados}}
+{{/if}} 
