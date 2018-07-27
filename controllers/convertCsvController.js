@@ -20,9 +20,10 @@ class ConvertController extends Controller{
                     .then(dataChecked=>{
 
                         let registerController = new RegisterController();
+                        this.res.json(dataChecked.VLsinVA) 
                         registerController.insertCsvVa(dataChecked.VAcorrectos)
                         registerController.insertCsvVl(dataChecked.VLcorrectos)
-                        this.res.json(dataChecked.VLerrores)                                        
+                                                               
                     })
 
                     .catch(error=>{
