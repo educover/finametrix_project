@@ -35,6 +35,6 @@ $("input[name='file']").change(funcion);
 $(document).ready(function() {    
     $('.but').on('click', function(){       
         //Añadimos la imagen de carga en el contenedor
-        $('#content').html('<div class="loading"><img src="images/ajax-loader.gif" alt="loading" /><br/>Un momento, por favor...</div>');       
+        $('#content').html('<div class="loading"><img src="images/ajax-loader.gif" alt="loading" /><br/>Procesando archivos, un momento por favor...</div>');       
     });  
 });    
