@@ -71,6 +71,8 @@ VL sin cabecera
   </tbody>
 </table>
 {{/if}} 
-{{#if Vprocesados}}
-Registros procesados: {{Vprocesados}}
+{{#if RegProcesados}}
+Registros procesados: {{RegProcesados.Vprocesados}}<br/>
+Cabeceras insertadas en Mongo: {{RegProcesados.regVAcorrectos}}<br/>
+Registros VL insertados en Mongo: {{RegProcesados.regVLcorrectos}}<br/>
 {{/if}} 

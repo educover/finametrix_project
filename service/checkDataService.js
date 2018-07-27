@@ -31,7 +31,7 @@ class checkDataService{
             }
         }
 
-        for (let x = 0; x < lineas.length; x++) {
+        for (let x = 0; x < lineas.length; x++){
             if(lineas[x].field1==='VL'){
 
                 if(!fecha.test(lineas[x].field3)){
@@ -44,12 +44,13 @@ class checkDataService{
                 }
             }
         }
+
        let miArray=[];
         for (let j = 0; j < VAcorrectos.length; j++) {
             for (let y = 0; y < VLcorrectos.length; y++) {
                 if(VAcorrectos[j].field2 == VLcorrectos[y].field2){
                     miArray[y] = 1;
-                } else if(miArray[j]=='1'){
+                } else if(miArray[y]=='1'){
 
                 } else{
                     miArray[y] = 0;
@@ -64,11 +65,16 @@ class checkDataService{
             }   
         }
 
+        let registros={
+             Vprocesados : i,
+             regVLcorrectos : VLcorrectos.length,
+             regVAcorrectos : VAcorrectos.length
+        }
 
-        let Vprocesados = i;
+        
         resolve({VLsinVA,VLcorrectos, VLerroresFecha, VLerroresMoneda, 
-            VAerrores, Vprocesados, VAcorrectos});
-        reject();
+            VAerrores, registros, VAcorrectos});
+        reject('error');
     })
   }
 

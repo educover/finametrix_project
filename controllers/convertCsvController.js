@@ -27,7 +27,7 @@ class ConvertController extends Controller{
                             VLsinVA:dataChecked.VLsinVA,
                             VLerroresFecha:dataChecked.VLerroresFecha,
                             VLerroresMoneda:dataChecked.VLerroresMoneda,
-                            Vprocesados:dataChecked.Vprocesados
+                            RegProcesados:dataChecked.registros
 
                         })                                     
                     })

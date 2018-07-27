@@ -5,7 +5,7 @@ class deleteDecimal{
         let pos = num.toString().indexOf(".");
         let miString = num.toString();
         let parteDecimal = miString.substring(pos);
-        let parteDecimalOk = parteDecimal[0]+parteDecimal[1]+parteDecimal[2];;
+        let parteDecimalOk = parteDecimal[0]+parteDecimal[1]+parteDecimal[2];
         return parteEntera+parteDecimalOk;
     }
 }
