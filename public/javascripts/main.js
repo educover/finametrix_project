@@ -36,4 +36,4 @@ $("input[name='file']").change(funcion);
 let miGif = function(){
     $('#content').html('<div class="loading"><img src="images/ajax-loader.gif" alt="loading" /><br/>Procesando archivos, un momento por favor...</div>');       
 }
-  
+

@@ -6,44 +6,28 @@ let CsvVlModel = require('../models/csvVlModel');
 
 class registerController extends Controller{
     constructor(req, res, next){
-        super(req, res, next)
+        super(req, res, next);
     }
-   
 
     insertCsvVl(VL){
-        CsvVlModel.collection.insert(VL, (err, docs)=>{
+        CsvVlModel.collection.insert(VL, (err)=>{
             if (err) {
-                console.error(err)
+                console.error(err);
             } else {
-                console.info('%d VE were successfully stored.', docs.length);
+                console.info('VL insertados correctamente');
             }
         })
     }
-    //VLerrores, VLcorrectos, VAerrores, VAcorrectos, niVAniVL
 
     insertCsvVa(VA){
 
-        CsvVaModel.collection.insert(VA, (err, docs)=>{
+        CsvVaModel.collection.insert(VA, (err)=>{
             if (err) {
-                console.error(err)
+                console.error(err);
             } else {
-                console.info('%d VA were successfully stored.'+ docs.length);
+                console.info('VA insertados correctamente');
             }
         })
-       
-        /*let valorVa = new CsvVaModel({
-            tipo_registro : 'VA[i].field1',
-            isin : 'VA[i].field2',
-            nombre : 'VA[i].field3',
-            divisa : 'VA[i].field4',
-            familia : 'VA[i].field5'
-        });
-        valorVa.save(err=>{
-            if(err) console.error(err);
-            console.log("Almacenado");
-          })
-        
-          this.res.json(valorVa);*/
     }
 }
 

@@ -1,4 +1,4 @@
-const csv=require('csvtojson');
+let csv = require('csvtojson');
 
 class CsvToJson{
     
@@ -13,8 +13,8 @@ class CsvToJson{
                 noheader: true
             })
             .fromFile(this.csvFilePath)
+            
             .then((jsonObj)=>{
-                //console.log(jsonObj)
                  resolve(jsonObj);
             })
             .catch(e=>{

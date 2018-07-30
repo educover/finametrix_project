@@ -1,6 +1,6 @@
 
 {{#if VLerroresFecha}} 
-Errores en el formato de la fecha
+<p>Errores en el formato de la fecha</p>
 <table class="table">
   <thead>
     <tr>
@@ -22,9 +22,9 @@ Errores en el formato de la fecha
   </tbody>
 </table>
 {{/if}} 
-
+<br/><br/><br/>
 {{#if VLerroresMoneda}} 
-Errores en el formato de la moneda
+<p>Errores en el formato de la moneda</p>
 <table class="table">
   <thead>
     <tr>
@@ -46,10 +46,10 @@ Errores en el formato de la moneda
   </tbody>
 </table>
 {{/if}} 
-
+<br/><br/><br/>
 
 {{#if VLsinVA}} 
-VL sin cabecera
+<p>VL sin cabecera</p>
 <table class="table">
   <thead>
     <tr>
@@ -71,8 +71,9 @@ VL sin cabecera
   </tbody>
 </table>
 {{/if}} 
+<br/><br/><br/>
 {{#if RegProcesados}}
-Registros procesados: {{RegProcesados.Vprocesados}}<br/>
-Cabeceras insertadas en Mongo: {{RegProcesados.regVAcorrectos}}<br/>
-Registros VL insertados en Mongo: {{RegProcesados.regVLcorrectos}}<br/>
+Registros procesados: <span class="regCorrectos">{{RegProcesados.Vprocesados}}</span><br/>
+Cabeceras insertadas en Mongo: <span class="regCorrectos">{{RegProcesados.regVAcorrectos}}</span><br/>
+Registros VL insertados en Mongo: <span class="regCorrectos">{{RegProcesados.regVLcorrectos}}</span><br/>
 {{/if}} 
