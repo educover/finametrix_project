@@ -32,21 +32,17 @@ class checkDataService{
                 } else {
                     VAcorrectos.push(lineas[i]);
                 }
-            }
-        }
+            } else  if(lineas[i].field1==='VL'){
 
-        for (let x = 0; x < lineas.length; x++){
-            if(lineas[x].field1==='VL'){
-
-                if(!fecha.test(lineas[x].field3)){
-                    VLerroresFecha.push(lineas[x]);
-                    lineaErroresFecha.push(x);
-                } else if(!price.test(lineas[x].field4)){
-                    VLerroresMoneda.push(lineas[x]);
-                    lineaErroresMoneda.push(x)
+                if(!fecha.test(lineas[i].field3)){
+                    VLerroresFecha.push(lineas[i]);
+                    lineaErroresFecha.push(i);
+                } else if(!price.test(lineas[i].field4)){
+                    VLerroresMoneda.push(lineas[i]);
+                    lineaErroresMoneda.push(i)
                 } else{
-                    lineas[x].field4 = parseFloat(lineas[x].field4.replace(',','.'));
-                    VLcorrectos.push(lineas[x]);
+                    lineas[i].field4 = parseFloat(lineas[i].field4.replace(',','.'));
+                    VLcorrectos.push(lineas[i]);
                 }
             }
         }
@@ -65,7 +61,6 @@ class checkDataService{
             let t = 0;
         for (let m = 0; m < miArray.length; m++) {
             if(miArray[m]==0){
-                
                 VLsinVA.push(VLcorrectos[m+t]);
                 VLcorrectos.splice(m+t, 1);
                 t--;
