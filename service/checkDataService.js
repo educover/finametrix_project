@@ -1,3 +1,4 @@
+var moment = require('moment');
 
 class checkDataService{
   constructor(csvJson){
@@ -5,7 +6,7 @@ class checkDataService{
   }
 
   checkData(){
-
+    //console.log(moment().format('YYYYMMDD'))
     let lineas = this.ISDNObject;
     return new Promise((resolve,reject)=>{
         let VLerroresFecha=[];
@@ -18,7 +19,7 @@ class checkDataService{
         let lineaErroresFecha = [];
         let lineaErroresMoneda = [];
         let lineaErroresVa = [];
-        var fecha = /^(?:(?:(?:(?:(?:[13579][26]|[2468][048])00)|(?:[0-9]{2}(?:(?:[13579][26])|(?:[2468][048]|0[48]))))(?:(?:(?:09|04|06|11)(?:0[1-9]|1[0-9]|2[0-9]|30))|(?:(?:01|03|05|07|08|10|12)(?:0[1-9]|1[0-9]|2[0-9]|3[01]))|(?:02(?:0[1-9]|1[0-9]|2[0-9]))))|(?:[0-9]{4}(?:(?:(?:09|04|06|11)(?:0[1-9]|1[0-9]|2[0-9]|30))|(?:(?:01|03|05|07|08|10|12)(?:0[1-9]|1[0-9]|2[0-9]|3[01]))|(?:02(?:[01][0-9]|2[0-8])))))$/;
+        //var fecha = /^(?:(?:(?:(?:(?:[13579][26]|[2468][048])00)|(?:[0-9]{2}(?:(?:[13579][26])|(?:[2468][048]|0[48]))))(?:(?:(?:09|04|06|11)(?:0[1-9]|1[0-9]|2[0-9]|30))|(?:(?:01|03|05|07|08|10|12)(?:0[1-9]|1[0-9]|2[0-9]|3[01]))|(?:02(?:0[1-9]|1[0-9]|2[0-9]))))|(?:[0-9]{4}(?:(?:(?:09|04|06|11)(?:0[1-9]|1[0-9]|2[0-9]|30))|(?:(?:01|03|05|07|08|10|12)(?:0[1-9]|1[0-9]|2[0-9]|3[01]))|(?:02(?:[01][0-9]|2[0-8])))))$/;
         var price  = /^[0-9]{1,}(\,[0-9]{1,})?$/;
         let i=0;
 
@@ -33,8 +34,8 @@ class checkDataService{
                     VAcorrectos.push(lineas[i]);
                 }
             } else  if(lineas[i].field1==='VL'){
-
-                if(!fecha.test(lineas[i].field3)){
+                if(!moment(lineas[i].field3, 'YYYYMMDD', true).isValid()){
+                //if(!fecha.test(lineas[i].field3)){
                     VLerroresFecha.push(lineas[i]);
                     lineaErroresFecha.push(i);
                 } else if(!price.test(lineas[i].field4)){
