@@ -13,9 +13,11 @@ class DataController extends Controller {
                 field2: this.req.query.isin
             }, (err, valor) => {
                 if (err) console.error(err);
-
-                resolve(valor)
-                reject('error')
+                if (valor) {
+                    resolve(valor)
+                } else {
+                    reject('error')
+                }
             });
         });
     }

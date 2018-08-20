@@ -9,7 +9,7 @@ class calculateRentability extends Controller {
 
     calculatesObj(valor) {
         let extractData = new ExtractData();
-        extractData.extractE(this.req.query.isin, this.req.query.dateFrom, this.req.query.dateTo, valor)
+        extractData.extractE(this.req.query.dateFrom, this.req.query.dateTo, valor)
             .then((data) => {
 
                 let calculate = new Calculate();
