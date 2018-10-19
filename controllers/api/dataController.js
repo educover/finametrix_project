@@ -12,11 +12,11 @@ class DataController extends Controller {
             modelVl.find({
                 field2: this.req.query.isin
             }, (err, valor) => {
-                if (err) console.error(err);
+                //if (err) console.error(err);
                 if (valor) {
                     resolve(valor)
                 } else {
-                    reject('error')
+                    reject(err)
                 }
             });
         });

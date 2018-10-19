@@ -62,9 +62,9 @@ class checkDataService {
                 let t = 0;
                 for (let m = 0; m < miArray.length; m++) {
                     if (miArray[m] == 0) {
-                        VLsinVA.push(VLcorrectos[m + t]);
-                        VLcorrectos.splice(m + t, 1);
-                        t--;
+                        VLsinVA.push(VLcorrectos[m]);
+                        VLcorrectos.splice(m, 1);
+                        m--;
                     }
                 }
 
@@ -74,7 +74,7 @@ class checkDataService {
                     regVAcorrectos: VAcorrectos.length
                 }
 
-
+                
                 resolve({
                     VLsinVA,
                     VLcorrectos,
